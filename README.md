@@ -7,7 +7,7 @@ Special Credit and Big Applause to Mr. Sandika Galih, a Lecture from UNPAS *(Pas
 phpmvc1_persiapan *(PHP MVC #1: Preparing)*<br>
 phpmvc2_routing *(PHP MVC #2: Routing)*<br>
 phpmvc3_controller *(PHP MVC #3: Controller)*<br>
-phpmvc4_view<br> *(PHP MVC #4: View)*<br>
+phpmvc4_view *(PHP MVC #4: View)*<br>
 phpmvc5_assets *(PHP MVC #5: Assets)*<br>
 phpmvc6_model *(PHP MVC #6: Model)*<br>
 phpmvc7_databaseWrapper *(PHP MVC #7: Database Wrapper)*<br>
