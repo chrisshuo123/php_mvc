@@ -1,0 +1,13 @@
+# PHP MVC Bibliography
+phpmvc1_persiapan
+phpmvc2_routing
+phpmvc3_controller
+phpmvc4_view
+phpmvc5_assets
+phpmvc6_model
+phpmvc7_databaseWrapper
+phpmvc8_insertData
+phpmvc9_flashMessage
+phpmvc10_deleteData
+phpmvc11_updateData
+phpmvc12_searching
