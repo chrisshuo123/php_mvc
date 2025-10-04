@@ -1,14 +1,10 @@
 <?php
 
 class About {
-    public function index() {
-        echo 'About/index';
+    public function index($name = 'Chrissuo', $hobby = 'Kyokushin') {
+        echo "Halo, saya $name, Hobi saya adalah $hobby";
     }
     public function page() {
         echo 'About/page';
-    }
-
-    public function pembuka($name = 'Chrissuo', $hobby = 'Kyokutin Karate') {
-        echo "Halo, saya $name, Hobi saya adalah $hobby";
     }
 }
