@@ -9,7 +9,7 @@ class App {
         $url = $this -> parseURL();
 
         // Controller
-        if(file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if($url && file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
             //var_dump($url); // <-- bisa dicommand.  var_dump utk permudah kita membaca direktori 'controller/method/params/params/...'
@@ -61,5 +61,8 @@ class App {
             
             return $url;
         }
+
+        // Return empty array if no URL is provided
+        return [];
     }
 }
