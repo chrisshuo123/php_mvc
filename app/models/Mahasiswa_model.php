@@ -16,6 +16,13 @@ class Mahasiswa_model {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet(); // Mengembalikan "semua" datanya
     }
+
+    // Untuk mendapat detail mahasiswa, kita perlu return 1 row sesuai $id
+    public function getMahasiswaById($id) {
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE idMahasiswa=:idMahasiswa');
+        $this->db->bind('idMahasiswa', $id);
+        return $this->db->single();
+    }
 }
 
 
