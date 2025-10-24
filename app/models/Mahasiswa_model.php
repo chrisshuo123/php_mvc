@@ -1,24 +1,20 @@
 <?php
 
 class Mahasiswa_model {
-    private $dbh; // DB Handler
-    private $stmt;
+    private $table = 'mahasiswa';
+    private $db;
 
+    // Memanggil kelas Database yg berada di core/Database.php
     public function __construct() {
-        // Data Source Handler
-        $dsn = 'mysql:host=localhost:3307;dbname=phpmvc';
-
-        try {
-            $this->dbh = new PDO($dsn, 'root', '');
-        } catch(PDOException $e) {
-            die($e->getMessage());
-        }
+        $this->db = new Database;
     }
 
     public function getAllMahasiswa() {
-        $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-        $this->stmt->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+        // stmt, dbh, prepare, execute, fetch sudah dilakukan di DB Wrapper
+        // Jadi tinggal panggil saja dari Database class, lalu method query() didlmnya.
+        // Didalam query(), jalankan parameternya pakai DL.
+        $this->db->query('SELECT * FROM ' . $this->table);
+        return $this->db->resultSet(); // Mengembalikan "semua" datanya
     }
 }
 
