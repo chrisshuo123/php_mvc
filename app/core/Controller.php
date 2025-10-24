@@ -7,7 +7,7 @@ class Controller {
 
     // Kalau view ga perlu instansiasi krn hanya tampilan, isinya html saja
     public function model($model) {
-        require_once '../app/models' . $model . '.php';
+        require_once '../app/models/' . $model . '.php';
         // Kalau models karna dia class, jadi harus diinstansiasi dulu spy bisa kita pakai
         return new $model;
     }
