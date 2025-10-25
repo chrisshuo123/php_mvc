@@ -41,13 +41,10 @@ class Database {
     public function query($query) { // querynya apapun nantinya
         // Yg isinya statement, diisi dgn handlernya (dbh), prepare, dan query
         $this->stmt = $this->dbh->prepare($query);
-        // Nanti querynya kita siapin, usernya maunya apa, apakah select, insert, update,
-        // delete.
+        // Nanti querynya kita siapin, usernya maunya apa, apakah select, insert, update, delete.
     }
 
-    // Selanjutnya kita jg perlu binding datanya, sp tau didalam querynya itu ada wherenya
-    // misalkan.  Lalu misalnya insert, insert itu valuesnya itu apa, kalau update itu ada
-    // set datanya apa, jadi istilahnya parameternya.
+    // Selanjutnya kita jg perlu binding datanya, sp tau didalam querynya itu ada wherenya misalkan.  Lalu misalnya insert, insert itu valuesnya itu apa, kalau update itu ada set datanya apa, jadi istilahnya parameternya.
     public function bind($param, $value, $type = null) {
         if(is_null($type)) {
             switch(true) {
@@ -73,8 +70,7 @@ class Database {
         $this->stmt->execute();
     }
 
-    // Lalu disini kita tentukan, setelah dieksekusi hasilnya kalian 
-    // pengen banyak atau cuman 1 saja datanya?
+    // Lalu disini kita tentukan, setelah dieksekusi hasilnya kalian pengen banyak atau cuman 1 saja datanya?
 
     // Kalau mau banyak
     public function resultSet() {

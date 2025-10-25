@@ -29,8 +29,7 @@ class App {
         // Params
         if(!empty($url)) {
             $this->params = array_values($url);
-            //var_dump($url); // <<<<<<< TURN THIS ON TO CHECK UNAVAILABLE PAGES!
-                            // recently turned off due to id shows in details mahasiswa.
+            //var_dump($url); // <<<<<<< TURN THIS ON TO CHECK UNAVAILABLE PAGES! recently turned off due to id shows in details mahasiswa.
         }
 
         // Jalankan controller & method, serta kirimkan params jika ada
