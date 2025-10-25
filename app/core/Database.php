@@ -85,4 +85,9 @@ class Database {
     } // Ini adalah wrappernya.
 
     // Diatas ini semua bisa kita pakai untuk tabel manapun nantinya
+
+    // Untuk menghitung ada berapa baris yg baru berubah didalam tabelnya (misal: ada tambah, ada ngepush, ada ubah nantinya) itu ada angkanya
+    public function rowCount() { // rowCount ini punya kita
+        return $this->stmt->rowCount(); //rowCount ini punya PDO
+    }
 }
