@@ -23,6 +23,27 @@ class Mahasiswa_model {
         $this->db->bind('idMahasiswa', $id);
         return $this->db->single();
     }
+
+    // Untuk 'Menangkap' Insert data mahasiswa
+    // Pada param ini, ia gunanya untuk menerima $_POST yang terdapat pada controller Mahasiswa method tambah().  Kita menangkapnya pakai $data saja
+    public function tambahDataMahasiswa($data) {
+        $query = "INSERT INTO mahasiswa
+                    VALUES
+                    ('', :nama, :nrp, :email, :jurusan)";
+        $this->db->query($query);
+        $this->db->bind(':nama', $data['nama']); // pakai $data menangkap hasil dari POSTnya. itu ['nama'] nya didapat darimana? dari name property (name) pada form-control.
+        $this->db->bind(':nrp', $data['nrp']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':jurusan', $data['jurusan']);
+    
+        $this->db->execute();
+        // Sampai disini db nya sudah jalan, tapi belum ada angka.  Jika dilihat pada controllers Mahasiswa, pada ($POST) > '0', kan kita butuh angka disini ya? kalau tambahDataMahasiswa menghasilkan angka 1, berarti ada 1 baris baru yg ditambahkan kedalam tabel kita. Nah skrg belum
+
+        // Utk itu kita perlu mengembalikan nilai. Nah tapi didalam class DB kita, kita belum punya sebuah method utk menghitung ada brp baris yg baru ditambahkan, atau dihapus, atau diedit.  Gimana kalau kita bikin dulu ke dalam DB Wrappernya? Jadi bisa ke core/Database.php, tambahkan 1 method paling bawah, dan bikin method rowCount.  Setelah itu, direturnkan.
+        return $this->db->rowCount(); // Dgn ini, maka akan menghasilkan angka 1.
+
+        // Untuk notifkan ke user "Insert Data Berhasil", di tutorial berikutnya.
+    }
 }
 
 
