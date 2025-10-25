@@ -9,7 +9,7 @@ class App {
         $url = $this -> parseURL();
 
         // Controller
-        if(file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if($url && file_exists('../app/controllers/' . $url[0] . '.php')) {
             $this->controller = $url[0];
             unset($url[0]);
             //var_dump($url); // <-- bisa dicommand.  var_dump utk permudah kita membaca direktori 'controller/method/params/params/...'
@@ -29,7 +29,7 @@ class App {
         // Params
         if(!empty($url)) {
             $this->params = array_values($url);
-            var_dump($url);
+            //var_dump($url); // <<<<<<< TURN THIS ON TO CHECK UNAVAILABLE PAGES! recently turned off due to id shows in details mahasiswa.
         }
 
         // Jalankan controller & method, serta kirimkan params jika ada
@@ -62,5 +62,8 @@ class App {
             return $url;
         }
         echo 'OK!';
+
+        // Return empty array if no URL is provided
+        return [];
     }
 }
