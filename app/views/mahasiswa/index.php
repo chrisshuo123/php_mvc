@@ -6,9 +6,10 @@
         </div>
     </div>
 
+    <!-- Hal. List Nama Mahasiswa Panel -->
     <div class="row">
         <div class="col-6">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
                 Tambah Data Mahasiswa
             </button><br><br>
             <h3>Daftar Mahasiswa</h3>
@@ -17,6 +18,8 @@
                     <li class="list-group-item">
                         <?= $mhs['nama'] ?>
                         <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['idMahasiswa'] ?>" class="badge text-bg-danger" style="float:right; margin-left: 1%;" onclick="return confirm('Yakin?');">hapus</a>
+                        <!-- data modal dan #formModal copas sini biar jalan pop-up editnya -->
+                        <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['idMahasiswa'] ?>"       class="badge text-bg-warning tampilModalUbah" style="float:right; margin-left: 1%;" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['idMahasiswa']; ?>">ubah</a>
                         <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['idMahasiswa'] ?>"       class="badge text-bg-primary" style="float:right;">detail</a>
                     </li>
                 <?php endforeach; ?>
@@ -26,11 +29,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
+<div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="judulModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Mahasiswa</h1>
+                <h1 class="modal-title fs-5" id="judulModalLabel">Tambah Data Mahasiswa</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
