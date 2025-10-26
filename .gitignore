@@ -1,7 +1,5 @@
 public/css/*
-<<<<<<< HEAD
-public/js/*
-=======
 public/js/*
 phpmvc7_dbWrapper explaination.txt
->>>>>>> phpmvc8_insertData
+phpmvc9_flashMessage.txt
+phpmvc10_deleteData.txt
