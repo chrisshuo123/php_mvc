@@ -44,6 +44,17 @@ class Mahasiswa_model {
 
         // Untuk notifkan ke user "Insert Data Berhasil", di tutorial berikutnya.
     }
+
+    // Untuk delete mahasiswa
+    public function hapusDataMahasiswa($id) {
+        $query = 'DELETE FROM mahasiswa WHERE idMahasiswa = :idMahasiswa';
+        $this->db->query($query);
+        $this->db->bind('idMahasiswa', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
 
 
