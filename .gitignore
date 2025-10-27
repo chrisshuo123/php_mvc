@@ -3,3 +3,5 @@ public/js/*
 phpmvc7_dbWrapper explaination.txt
 phpmvc9_flashMessage.txt
 phpmvc10_deleteData.txt
+!public/js/bootstrap.js
+!public/css/bootstrap.css
