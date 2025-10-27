@@ -19,8 +19,8 @@ class Mahasiswa_model {
 
     // Untuk mendapat detail mahasiswa, kita perlu return 1 row sesuai $id
     public function getMahasiswaById($id) {
-        $this->db->query('SELECT * FROM '.$this->table.' WHERE idMahasiswa=:idMahasiswa');
-        $this->db->bind('idMahasiswa', $id);
+        $this->db->query('SELECT idMahasiswa as id, nama, nrp, email, jurusan FROM '.$this->table.' WHERE idMahasiswa=:id');
+        $this->db->bind(':id', $id);
         return $this->db->single();
     }
 
@@ -54,6 +54,52 @@ class Mahasiswa_model {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function ubahDataMahasiswa($data) {
+
+        // DEBUG: Log semua data yang diterima
+        error_log("=== DEBUG UBAH DATA MAHASISWA ===");
+        error_log("Data received:");
+        error_log("nama: " . $data['nama']);
+        error_log("nrp: " . $data['nrp']);
+        error_log("email: " . $data['email']);
+        error_log("jurusan: " . $data['jurusan']);
+        error_log("id: " . $data['id']);
+
+        $query = "UPDATE mahasiswa SET
+                    nama = :nama,
+                    nrp = :nrp,
+                    email = :email,
+                    jurusan = :jurusan
+                  WHERE idMahasiswa = :id";
+
+        // DEBUG: Log binding values
+        error_log("Binding values:");
+        error_log(":nama = " . $data['nama']);
+        error_log(":nrp = " . $data['nrp']);
+        error_log(":email = " . $data['email']);
+        error_log(":jurusan = " . $data['jurusan']);
+        error_log(":id = " . $data['id']);
+                    
+        $this->db->query($query);
+        $this->db->bind(':nama', $data['nama']);
+        $this->db->bind(':nrp', $data['nrp']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':jurusan', $data['jurusan']);
+        $this->db->bind(':id', $data['id']);
+        
+        // DEBUG: Before execute
+        error_log("Before execute...");
+
+        $this->db->execute();
+
+        $rowCount = $this->db->rowCount();
+        // DEBUG: After execute
+        error_log("Rows affected: " . $rowCount);
+        error_log("=== END DEBUG ===");
+
+        return $rowCount;
     }
 }
 
