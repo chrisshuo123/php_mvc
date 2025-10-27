@@ -39,6 +39,8 @@
             <div class="modal-body">
                 <!-- actionnya ke views/mahasiswa/tambah (gpp kalau belum punya dulu hal. nya), utk methodnya POST -->
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+                    <!-- id hidden (buat menjalankan fungsi Update / Ubah) -->
+                    <input type="hidden" name="id" id="id">
                     <!-- Nama -->
                     <div class="mb-3">
                         <!-- Untuk input, name (alias name property) itu wajib, agar bisa diambil oleh assoc array phpnya. -->
