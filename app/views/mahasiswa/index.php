@@ -29,24 +29,18 @@
 </div>
 
 <!-- Modal -->
-<<<<<<< HEAD
-<div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="judulModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="judulModal">Tambah Data Mahasiswa</h1>
-=======
 <div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="judulModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="judulModalLabel">Tambah Data Mahasiswa</h1>
->>>>>>> phpmvc11_1_updateData_AjaxTuning
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- actionnya ke views/mahasiswa/tambah (gpp kalau belum punya dulu hal. nya), utk methodnya POST -->
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="POST">
+                    <!-- id hidden (buat menjalankan fungsi Update / Ubah) -->
+                    <input type="hidden" name="id" id="id">
                     <!-- Nama -->
                     <div class="mb-3">
                         <!-- Untuk input, name (alias name property) itu wajib, agar bisa diambil oleh assoc array phpnya. -->

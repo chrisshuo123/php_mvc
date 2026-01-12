@@ -52,6 +52,52 @@ class Mahasiswa extends Controller {
             exit;
         }
     }
+
+    // public function getubah() {
+    //     //$this->model('Mahasiswa_model')->getDataUbah($_POST['id']);
+    //     // Karena ada getMahasiswaById yg querynya sesuai, maka getDataUbah tidak perlu
+    //     // $this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']);
+    //     // mengingat diatas adl array_assoc, saat di'echo pasti ga mau.  Supaya datanya bukan array associative tapi bentuknya json, harus dibungkus dgn sebuah fungsi namanya json_encode:
+    //     echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']));
+    //     // Jadi diatas adalah json.  Dan json akan dikirim kedalam 'data' di script $.ajax, datatype json.
+    // }
+
+    public function getubah() {
+        // Debug button 'ubah'
+        //echo 'ok';
+        //echo $_POST['id']; //idMahasiswa adalah id. karena si data-id.
+        error_log("getubah called with ID: " . $_POST['id']);
+
+        $result = $this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']);
+        //echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']));
+
+        error_log("Result from getMahasiswaById:");
+        error_log(print_r($result, true));
+
+        echo json_encode($result);
+    }
+
+    public function ubah() {
+        // Debug dicommand "//" dulu jika tidak ada error, agar saat update berhasil, notif respon menyatakan "berhasil". Kenapa? Karna error_log dan assoc jika ditaruk sebelum header, menyebabkan error pada pop-up notif sehingga saat update berhasil notif menyatakan "gagal".
+        // error_log("=== CONTROLLER UBAH METHOD ===");
+        // error_log("POST data: " . print_r($_POST, true));
+
+        //$result = $this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST);
+
+        //error_log("Result from model: " . $result);
+
+        if($this->model('Mahasiswa_model')->ubahDataMahasiswa($_POST) > 0) {
+            error_log("SUCCESS: Data updated");
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            error_log("FAILED: No rows updated");
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        }
+    }
 }
 
 ?>
