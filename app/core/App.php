@@ -61,7 +61,6 @@ class App {
             
             return $url;
         }
-        echo 'OK!';
 
         // Return empty array if no URL is provided
         return [];
