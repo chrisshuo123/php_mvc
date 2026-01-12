@@ -3,7 +3,7 @@ $(function() {
 
 
         $('#judulModalLabel').html('Tambah Data Mahasiswa');
-        $('.modal-footer button[type=submit]').html('Tambah Data');
+        $('.modal-footer button[action=submit]').html('Tambah Data');
         $('.modal-body form').attr('action', 'http://localhost/php-mvc/public/mahasiswa/tambah');
     
     });
@@ -13,7 +13,7 @@ $(function() {
 
 
         $('#judulModalLabel').html('Ubah Data Mahasiswa');
-        $('.modal-footer button[type=submit]').html('Ubah Data');
+        $('.modal-footer button[action=submit]').html('Ubah Data');
         $('.modal-body form').attr('action', 'http://localhost/php-mvc/public/mahasiswa/ubah');
         // gapapa walau kita masih ga punya method ubah
         
